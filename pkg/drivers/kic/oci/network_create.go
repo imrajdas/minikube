@@ -124,7 +124,7 @@ func tryCreateDockerNetwork(ociBin string, subnet *network.Parameters, mtu int, 
 		}
 	}
 
-	args = append(args, "--label=%s=%s", ProfileLabelKey, profile)
+	args = append(args, fmt.Sprintf("--label=%s=%s", ProfileLabelKey, profile))
 	args = append(args, fmt.Sprintf("--label=%s=%s", CreatedByLabelKey, "true"), name)
 
 	rr, err := runCmd(exec.Command(ociBin, args...))
